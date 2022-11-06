@@ -1,24 +1,36 @@
-/* import express from "express"; */
 import { Router } from "express";
 
 import { productosDao } from "../daos/index.js"
 
-/* const test = new productosDao() */
-
 const products = Router()
 
+/* products.get("/:id", async (req, res) => {  
+  const { id } = req.params
+  const productos = await productosDao.listarUno(id);
+  res.status(201).json(productos)
+}); */
 
-/* import { getAll, getById, save, deleteById, changeById } from "../controllers/productsController.js"; */
-/* import { isLogin } from "../controllers/adminController.js"; */
-
-
-products.get("/", async (req, res) => {
+products.get("/:cat", async (req, res) => {
   
-  const productos = await productosDao.listarTodos();
+  const { cat } = req.params
+  const categorias = [];
+
+  const categ = await productosDao.listarCategorias();
+  
+  let elementoAnterior=""
+
+  categ.forEach((element) => {
+    if (elementoAnterior!=element.category) {
+      categorias.push(element);
+    }
+    elementoAnterior=element.category
+  });
+  
+  const productos = await productosDao.listarTodos(cat);
   const usuario=req.session.user
   
-  res.status(200).render('productos', {productos, usuario});
-  /* res.status(200).json(productos); */
+  res.status(200).render('productos', {productos, categorias, usuario, cat});
+
 });
 
 products.get("/:id", async (req, res) => {  

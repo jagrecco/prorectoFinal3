@@ -1,0 +1,36 @@
+[2022-11-06T19:17:13.699Z  Level: [31merror[39m  Intengo de registrar usuario existente: {
+  _id: new ObjectId("6367144c26a88a5c4a4ae039"),
+  email: 'tutu@coder.com',
+  password: '$2b$10$cLPYjwxI/Ille83cLnjNcO4.DPDNuu17w/DOGXDY5fUK4FDQeF1L.',
+  nombre: 'Tutu',
+  direccion: 'Evergreen Terrace 742',
+  edad: 54,
+  telefono: '+5491163279632',
+  foto: 'https://randomuser.me/api/portraits/med/men/91.jpg',
+  createdAt: 2022-11-06T01:56:28.563Z,
+  updatedAt: 2022-11-06T01:56:28.563Z
+}]
+[2022-11-06T19:19:40.655Z  Level: [31merror[39m  Intengo de registrar usuario existente: {
+  _id: new ObjectId("6367144c26a88a5c4a4ae039"),
+  email: 'tutu@coder.com',
+  password: '$2b$10$cLPYjwxI/Ille83cLnjNcO4.DPDNuu17w/DOGXDY5fUK4FDQeF1L.',
+  nombre: 'Tutu',
+  direccion: 'Evergreen Terrace 742',
+  edad: 54,
+  telefono: '+5491163279632',
+  foto: 'https://randomuser.me/api/portraits/med/men/91.jpg',
+  createdAt: 2022-11-06T01:56:28.563Z,
+  updatedAt: 2022-11-06T01:56:28.563Z
+}]
+[2022-11-06T19:20:33.473Z  Level: [31merror[39m  Intengo de registrar usuario existente: {
+  _id: new ObjectId("6367144c26a88a5c4a4ae039"),
+  email: 'tutu@coder.com',
+  password: '$2b$10$cLPYjwxI/Ille83cLnjNcO4.DPDNuu17w/DOGXDY5fUK4FDQeF1L.',
+  nombre: 'Tutu',
+  direccion: 'Evergreen Terrace 742',
+  edad: 54,
+  telefono: '+5491163279632',
+  foto: 'https://randomuser.me/api/portraits/med/men/91.jpg',
+  createdAt: 2022-11-06T01:56:28.563Z,
+  updatedAt: 2022-11-06T01:56:28.563Z
+}]

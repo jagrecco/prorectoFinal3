@@ -1,13 +1,7 @@
 import mongoose from "mongoose";
+import logger from "../loggers/logger.js";
 import ProdModel from "../models/productoSchema.js"
 import conexion from "../config/config.js"
-
-/* import "../db/conectMongo.js" */
-/* mongoose.connect(conexion.mongoDbCon.dbURI, {dbName: 'prods'}).then(
-    () => { console.log("Conexión exitosa a Mongo")},
-    err => { console.log(err)}
-);
- */
 
 class ContenedorMongo{
     constructor(col, esquema){
@@ -16,12 +10,27 @@ class ContenedorMongo{
         
     }
 
-    async listarTodos(){
+    async listarCategorias(){
         try {
-            return await this.col.find();
+            //db.genbetadev.find({},{"nombre":1,"_id":0});
+            return await this.col.find({},{"category":1,"_id":0});
         }
         catch (error){
-            console.log("Error al conectar a la fuente de datos: " + error)
+            logger.error(`Error al conectar a la fuente de datos: ${error}`)
+        }
+    }
+    
+    async listarTodos(cualCategoria){
+        
+        try {
+            if (cualCategoria=='Todos'){
+                return await this.col.find();    
+            }
+
+            return await this.col.find({"category":cualCategoria});
+        }
+        catch (error){
+            logger.error(`Error al conectar a la fuente de datos: ${error}`)
         }
     }
 
@@ -31,7 +40,7 @@ class ContenedorMongo{
             return await this.col.find({_id: idProducto});
         }
         catch (error){
-            console.log("Error al conectar a la fuente de datos: " + error)
+            logger.error(`Error al conectar a la fuente de datos: ${error}`)
         }
 
     }
@@ -44,7 +53,7 @@ class ContenedorMongo{
             return objeto;
         }
         catch (error){
-            console.log("Error al conectar a la fuente de datos: " + error)
+            logger.error(`Error al conectar a la fuente de datos: ${error}`)
         }
 
     }
@@ -56,7 +65,7 @@ class ContenedorMongo{
             return productos;
         }
         catch (error){
-            console.log("Error al conectar a la fuente de datos: " + error)
+            logger.error(`Error al conectar a la fuente de datos: ${error}`)
         }
 
     }
@@ -67,7 +76,7 @@ class ContenedorMongo{
             return this.col.findOneAndUpdate(idProducto, objeto, {new: true});
         }
         catch (error){
-            console.log("Error al conectar a la fuente de datos: " + error)
+            logger.error(`Error al conectar a la fuente de datos: ${error}`)
         }
 
     }
@@ -78,7 +87,7 @@ class ContenedorMongo{
             await mongoose.connection.close();
         }
         catch (error){
-            console.log("Error al conectar a la fuente de datos: " + error)
+            logger.error(`Error al terminar la conexión a la fuente de datos: ${error}`)
         }
     }
 }

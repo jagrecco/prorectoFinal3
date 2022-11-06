@@ -135,3 +135,52 @@
 [2022-11-05T21:28:05.129Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /profile]
 [2022-11-05T22:20:20.877Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /login]
 [2022-11-06T01:32:20.307Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /singup]
+[2022-11-06T13:12:39.935Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /favicon.ico]
+[2022-11-06T17:05:47.604Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /api/productos?cat=Todos]
+[2022-11-06T17:08:29.511Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /api/productos?cat=Todos]
+[2022-11-06T17:08:40.302Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /api/productos]
+[2022-11-06T17:08:59.538Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /api/productos?cat=Todos]
+[2022-11-06T17:52:56.483Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /api/productos]
+[2022-11-06T18:08:31.782Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /api/productos]
+[2022-11-06T18:25:13.443Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /profile]
+[2022-11-06T18:26:57.181Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /profile]
+[2022-11-06T18:48:12.877Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /profile]
+[2022-11-06T19:16:50.739Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /errorLogin.ejs]
+[2022-11-06T19:17:13.699Z  Level: [31merror[39m  Intengo de registrar usuario existente: {
+  _id: new ObjectId("6367144c26a88a5c4a4ae039"),
+  email: 'tutu@coder.com',
+  password: '$2b$10$cLPYjwxI/Ille83cLnjNcO4.DPDNuu17w/DOGXDY5fUK4FDQeF1L.',
+  nombre: 'Tutu',
+  direccion: 'Evergreen Terrace 742',
+  edad: 54,
+  telefono: '+5491163279632',
+  foto: 'https://randomuser.me/api/portraits/med/men/91.jpg',
+  createdAt: 2022-11-06T01:56:28.563Z,
+  updatedAt: 2022-11-06T01:56:28.563Z
+}]
+[2022-11-06T19:19:40.655Z  Level: [31merror[39m  Intengo de registrar usuario existente: {
+  _id: new ObjectId("6367144c26a88a5c4a4ae039"),
+  email: 'tutu@coder.com',
+  password: '$2b$10$cLPYjwxI/Ille83cLnjNcO4.DPDNuu17w/DOGXDY5fUK4FDQeF1L.',
+  nombre: 'Tutu',
+  direccion: 'Evergreen Terrace 742',
+  edad: 54,
+  telefono: '+5491163279632',
+  foto: 'https://randomuser.me/api/portraits/med/men/91.jpg',
+  createdAt: 2022-11-06T01:56:28.563Z,
+  updatedAt: 2022-11-06T01:56:28.563Z
+}]
+[2022-11-06T19:20:33.473Z  Level: [31merror[39m  Intengo de registrar usuario existente: {
+  _id: new ObjectId("6367144c26a88a5c4a4ae039"),
+  email: 'tutu@coder.com',
+  password: '$2b$10$cLPYjwxI/Ille83cLnjNcO4.DPDNuu17w/DOGXDY5fUK4FDQeF1L.',
+  nombre: 'Tutu',
+  direccion: 'Evergreen Terrace 742',
+  edad: 54,
+  telefono: '+5491163279632',
+  foto: 'https://randomuser.me/api/portraits/med/men/91.jpg',
+  createdAt: 2022-11-06T01:56:28.563Z,
+  updatedAt: 2022-11-06T01:56:28.563Z
+}]
+[2022-11-06T19:46:58.416Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /errorLogin.ejs]
+[2022-11-06T21:54:31.209Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /api/productos]
