@@ -7,9 +7,11 @@ const profile = Router();
 
 profile.get('/', async (req, res)=>{
 
-    const user = await Usuario.findOne({ email: req.session.user });
+  const usuario=req.session.user
+  const user = await Usuario.findOne({ email: req.session.user });
 
-    res.status(200).render('profile', {user})
+  res.status(200).render('profile', {user, usuario})
+
 })
 
 profile.post('/', async (req, res)=>{
@@ -26,7 +28,7 @@ profile.post('/', async (req, res)=>{
 
   }
 
-  res.redirect("/login");
+  res.redirect("/api/productos/Todos");
 
   /* Usuario.findOne({ "email" : req.body.email }, async (err, user) => {
     if (err) {

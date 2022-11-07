@@ -14,13 +14,13 @@
               <input type="texto" name="nombre" placeholder="Nombre" class="form-control" value=<%=user.nombre%>>
             </div>
             <div class="form-group">
-              <input type="texto" name="direccion" placeholder="Dirección" class="form-control" value=<%=user.direccion%>>
+              <input type="texto" name="direccion" placeholder="Dirección" class="form-control" value="<%=user.direccion%>">
             </div>
             <div class="form-group">
               <input type="texto" name="edad" placeholder="Edad" class="form-control" value=<%=user.edad%>>
             </div>
             <div id="login" onsubmit="process(event)" class="form-group">
-              <input id="phone" type="texto" name="telefono" class="form-control" value=<%=user.telefono%>/>
+              <input id="phone" type="tel" name="telefono" class="form-control" value=<%=user.telefono%>>
             </div>
             <div class="form-group">
               <input type="texto" name="foto" placeholder="Foto" class="form-control" value=<%=user.foto%>>
@@ -32,8 +32,9 @@
               <input type="password" name="password" placeholder="Password" class="form-control" value=<%=user.password%>>
             </div>
             <button type="submit" class="btn btn-dark btn-block mt-4">
-              Actualizar
+              Actualizar datos
             </button>
+            <a href="/api/productos/Todos" class="btn btn-dark btn-block mt-4">Volver al catálogo</a>
           </form>
       
         </div>
@@ -41,5 +42,3 @@
     </div>
   </div>
 </div>
-
-
