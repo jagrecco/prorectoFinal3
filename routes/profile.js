@@ -1,6 +1,10 @@
 import logger from "../loggers/logger.js";
+import bcrypt from "bcrypt";
 import { Router } from "express";
 import Usuario from "../models/user.js";
+import path from 'path';
+import subirImg from "../middleware/multer.js";
+
 
 const profile = Router();
 
@@ -10,13 +14,21 @@ profile.get('/', async (req, res)=>{
   const usuario=req.session.user
   const user = await Usuario.findOne({ email: req.session.user });
 
+  const tmpFoto=user.foto;
+
+  user.foto=path.join('profile-img',tmpFoto)
+  
   res.status(200).render('profile', {user, usuario})
 
 })
 
-profile.post('/', async (req, res)=>{
+profile.post('/', subirImg.single('foto'), async (req, res)=>{
   
-  const { email, password, nombre, direccion, edad, telefono, foto } = req.body;
+  const { email, password, nombre, direccion, edad, telefono} = req.body;
+
+  let foto=req.body.foto
+  
+  if(req.file) foto=req.file.filename
   
   try {
 
@@ -30,26 +42,7 @@ profile.post('/', async (req, res)=>{
 
   res.redirect("/api/productos/Todos");
 
-  /* Usuario.findOne({ "email" : req.body.email }, async (err, user) => {
-    if (err) {
-        logger.error(`Error de registro: ${err}`)
-        res.render('errorRegistro');
-    };
-    if (user) {
-        logger.error(`Intengo de registrar usuario existente: ${user}`)
-        res.render('errorRegistro');
-    }
-    
-    if (!user) {
-      const newUser = new Usuario({ email, password, nombre, direccion, edad, telefono, foto });
-      const hashedPassword= await newUser.encryptPassword(password);
-      newUser.password=hashedPassword;
-      
-      await newUser.save();
-      res.redirect("/login");
-    }
   
-}); */
 })
 
 export default profile;

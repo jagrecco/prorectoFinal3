@@ -2,6 +2,7 @@ import logger from "../loggers/logger.js";
 import { Router } from "express";
 const register = Router();
 
+import subirImg from "../middleware/multer.js";
 import User from "../models/user.js";
 
 
@@ -11,17 +12,20 @@ register.get('/', (req, res)=>{
 
 })
 
-register.post('/', (req, res)=>{
+register.post('/', subirImg.single('foto'), (req, res)=>{
   
-  const { email, password, nombre, direccion, edad, telefono, foto } = req.body;
+  /* const { email, password, nombre, direccion, edad, telefono, foto } = req.body; */
+  const { email, password, nombre, direccion, edad, telefono } = req.body;
   
+  const foto=req.file.filename
+
   User.findOne({ "email" : req.body.email }, async (err, user) => {
     if (err) {
         logger.error(`Error de registro: ${err}`)
         res.render('errorRegistro');
     };
     if (user) {
-        logger.error(`Intengo de registrar usuario existente: ${user}`)
+        logger.error(`Intento de registrar usuario existente: ${user}`)
         res.render('errorRegistro');
     }
     

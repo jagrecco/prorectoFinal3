@@ -57,3 +57,13 @@ img{
 .iti{
     width: 100%;
 }
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
+
+.imagenPerfil{
+    margin:auto;
+    margin-bottom: 15px;
+    max-width: 200px;
+    height: auto;
+}

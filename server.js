@@ -10,24 +10,21 @@ import express, { json, urlencoded } from 'express';
 import session from "express-session";
 import cookieParser from "cookie-parser";
 import MongoStore from "connect-mongo";
-/* import mongoose from "mongoose"; */
 import passport from "passport";
 import compression from "compression";
 import multer from 'multer';
 import logger from "./loggers/logger.js";
 import engine from 'ejs-mate';
-
-import path from 'path';
+/* import path from 'path';
 import {fileURLToPath} from 'url';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-/* console.log('directory-name 👉️', __dirname);
-console.log(path.join(__dirname, '/public')); */
+const rutaIMG=path.join(__dirname, '/public','profile-img')
+ */
 
 import "./db/conectMongo.js"
-
 import router from "./routes/index.js";
-
 import './middleware/passport.js'
 
 // inicialización

@@ -5,11 +5,28 @@
   <div class="row">
     <div class="col-md4 offset-1 col-10">
       <div class="card mt-4 text-center">
-        <div class="card-header">
+
+        <!-- <div class="card-header">
           <h3>Usuario <%=user.nombre%></h3>
         </div>
+         -->
+        
         <div class="card-body">
-          <form action="/profile" method="POST">
+
+          <div class="imageProfile">
+            <div class="imagenPerfil card-img-top">
+              <img src=<%=user.foto%> class="img-thumbnail" id="imgProfile"> <!-- class="card-img-top" -->
+            </div>
+            
+          </div>
+
+          
+          <form action="/profile" method="POST" enctype="multipart/form-data">
+            
+            <div class="form-group">
+              <input type="file" name="foto" onchange="cambio()" accept="image/*" id="imgRuta" style="display:none">
+              <a href="javascript:doClick()" class="btn btn-dark btn-block mt-4">Seleccione su imágen de perfil</a>
+            </div>
             <div class="form-group">
               <input type="texto" name="nombre" placeholder="Nombre" class="form-control" value=<%=user.nombre%>>
             </div>
@@ -22,9 +39,7 @@
             <div id="login" onsubmit="process(event)" class="form-group">
               <input id="phone" type="tel" name="telefono" class="form-control" value=<%=user.telefono%>>
             </div>
-            <div class="form-group">
-              <input type="texto" name="foto" placeholder="Foto" class="form-control" value=<%=user.foto%>>
-            </div>
+            
             <div class="form-group">
               <input type="email" name="email" placeholder="Email" class="form-control" value=<%=user.email%>>
             </div>

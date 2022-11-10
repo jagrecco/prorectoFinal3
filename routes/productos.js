@@ -4,12 +4,6 @@ import { productosDao } from "../daos/index.js"
 
 const products = Router()
 
-/* products.get("/:id", async (req, res) => {  
-  const { id } = req.params
-  const productos = await productosDao.listarUno(id);
-  res.status(201).json(productos)
-}); */
-
 products.get("/:cat", async (req, res) => {
   
   const { cat } = req.params

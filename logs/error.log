@@ -34,3 +34,4 @@
   createdAt: 2022-11-06T01:56:28.563Z,
   updatedAt: 2022-11-06T01:56:28.563Z
 }]
+[2022-11-09T21:59:35.052Z  Level: [31merror[39m  Error modificando usuario: ReferenceError: foto is not defined]
