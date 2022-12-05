@@ -14,10 +14,13 @@ register.get('/', (req, res)=>{
 
 register.post('/', subirImg.single('foto'), (req, res)=>{
   
-  /* const { email, password, nombre, direccion, edad, telefono, foto } = req.body; */
   const { email, password, nombre, direccion, edad, telefono } = req.body;
   
-  const foto=req.file.filename
+  /* const foto=req.file.filename */
+  let foto="profile_img.png"
+
+  //si no subió foto de perfil usa la predeterminada
+  if (req.file) {foto=req.file.filename}
 
   User.findOne({ "email" : req.body.email }, async (err, user) => {
     if (err) {

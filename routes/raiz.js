@@ -5,7 +5,8 @@ const raiz = Router()
 raiz.get("/", async (req, res) => {
 
     const usuario=req.session.user
-    res.status(200).render('index', {usuario})
+    res.status(200).render('signin', {usuario})
+    /* res.status(200).render('index', {usuario}) */
 
 });
 

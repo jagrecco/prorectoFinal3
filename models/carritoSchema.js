@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const url="https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU"
 
 const carritoSchema = new mongoose.Schema({
-
+    idUsuario: { type: String, required: true, max: 100 },
     timestamp:  { type: Date, default: Date.now },
     productos: [
         {

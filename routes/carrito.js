@@ -5,8 +5,15 @@ import { carritosDao } from "../daos/index.js"
 
 const carts = Router();
 
-carts.post("/", async (req, res) => {
-  const data = await carritosDao.guardarUno({ productos: [] })
+carts.post("/:carro", async (req, res) => {
+  const {carro} = req.params
+  
+  const producto=JSON.stringify(req.body)
+
+  /* console.log("req.body = " + JSON.parse(producto)) */
+  /* console.log(carro); */
+  /* const data = await carritosDao.agregarProducto({ idCarro: carro, productos: [] }) */
+  const data = await carritosDao.agregarProducto(carro, producto)
   res.status(201).json(data)   
 });
 

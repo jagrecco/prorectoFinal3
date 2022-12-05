@@ -67,3 +67,16 @@ img{
     max-width: 200px;
     height: auto;
 }
+
+.imgNav{
+    width: 60px;
+    height: auto;
+    /* box-shadow: 7px 10px 5px 0px rgba(247,243,243,0.75); */
+    /* filter: drop-shadow(0 0 0.75rem white); */
+    filter: drop-shadow(2px 2px 2px white);
+}
+
+.txtTienda{
+    display: inline-block;
+}
+

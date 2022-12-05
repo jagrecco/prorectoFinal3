@@ -9,7 +9,7 @@ login.get("/", (req, res) => {
 
 });
 
-login.post("/", passport.authenticate('local', { failureRedirect: "/errorlogin"}), (req, res) => { //errorLogin.ejs
+login.post("/", passport.authenticate('local', { failureRedirect: "/errorlogin"}), (req, res) => {
   
   const { email } = req.body;
   

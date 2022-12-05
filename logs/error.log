@@ -35,3 +35,7 @@
   updatedAt: 2022-11-06T01:56:28.563Z
 }]
 [2022-11-09T21:59:35.052Z  Level: [31merror[39m  Error modificando usuario: ReferenceError: foto is not defined]
+[2022-11-13T18:27:09.692Z  Level: [31merror[39m  Error al conectar a la fuente de datos: CastError: Cast to ObjectId failed for value "Todos" (type string) at path "_id" for model "productos"]
+[2022-11-13T18:27:35.323Z  Level: [31merror[39m  Error al conectar a la fuente de datos: CastError: Cast to ObjectId failed for value "Todos" (type string) at path "_id" for model "productos"]
+[2022-11-13T18:27:38.439Z  Level: [31merror[39m  Error al conectar a la fuente de datos: CastError: Cast to ObjectId failed for value "Todos" (type string) at path "_id" for model "productos"]
+[2022-11-13T18:27:48.027Z  Level: [31merror[39m  Error al conectar a la fuente de datos: CastError: Cast to ObjectId failed for value "Todos" (type string) at path "_id" for model "productos"]

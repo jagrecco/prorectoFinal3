@@ -8,7 +8,8 @@ const UserSchema = new mongoose.Schema({
   direccion: { type: String, required: true },
   edad: { type: Number, required: true },
   telefono: { type: String, required: true },
-  foto: { type: String, required: true },
+  foto: { type: String, default:"profile_img.png", required: true },
+  adm: { type: Boolean, default:false},
 },
 {
   timestamps: true,

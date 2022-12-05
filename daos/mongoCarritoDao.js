@@ -1,4 +1,3 @@
-
 import ContenedorMongo from "../contenedores/mongoDbContenedor.js"
 import CarrModel from "../models/carritoSchema.js"
 
@@ -9,15 +8,56 @@ class CarritoMongoDao extends ContenedorMongo {
 
     async agregarProducto(idCarrito, producto){
 
-        try {
+        const nuevoCarro={}
 
-            const data = await super.listarUno(idCarrito)
-            const arrProd = data[0].productos
-            arrProd.push(producto)
-            data[0].productos=arrProd
-            const carroModificado=this.col(data[0])
-            await carroModificado.save()            
-            return data[0]
+        try {
+            
+            const carro = await this.buscarCarro(idCarrito)
+                try {
+                    
+                    if (carro.length==0) {
+                       
+                        nuevoCarro.idUsuario=idCarrito;
+                        nuevoCarro.productos=[];
+                        nuevoCarro.productos.push(JSON.parse(producto))
+                        console.log(nuevoCarro);
+                        const nuevoCarrito=this.col(nuevoCarro)
+                        await nuevoCarrito.save()
+
+                    } else {
+
+                        const arrayProductos=carro[0].productos
+                        
+                        arrayProductos.push(JSON.parse(producto))
+                        console.log(arrayProductos);
+
+                        /* const query = { name: "Steve Lobsters", "items.type": "pizza" };
+                        const updateDocument = {
+                            $set: { "items.$.size": "extra large" }
+                        }; */
+                    
+                        await this.col.updateOne({idUsuario: idCarrito}, {$set: {productos: arrayProductos} }/* ,
+                        function(error, info) {
+                            if (error) {
+                                console.log(`No se pudo actualizar el carrito ${idCarrito} con el producto ${producto}`)
+                            } else {
+                                console.log(`Se actualizó el carrito ${idCarrito} con el producto ${producto}`)
+                            }
+                        } */)
+                            try {
+                                console.log(`Producto agregado al carrito ${idCarrito}`);
+                            } catch (error) {
+                                console.log(`Error al actualizar carrito ${idCarrito}: ${error}`);
+                            }
+                    
+
+                    }
+                    /* const nuevoCarrito=this.col(nuevoCarro)
+                    await nuevoCarrito.save() */
+                    
+                } catch (error) {
+                    console.log("Error al conectar a la fuente de datos: " + error);
+                }
 
         }
         catch (error){
@@ -44,6 +84,14 @@ class CarritoMongoDao extends ContenedorMongo {
             console.log("Error al conectar a la fuente de datos: " + error)
         }
 
+    }
+
+    async buscarCarro(idCarrito) {
+        try {
+            return await this.col.find({idUsuario: idCarrito});
+        } catch (error) {
+            console.log("Error al conectar a la fuente de datos: " + error)
+        }
     }
 }
 

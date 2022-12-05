@@ -1,6 +1,11 @@
+import { config } from 'dotenv';
 import { Router } from "express";
 
 import { productosDao } from "../daos/index.js"
+
+if (process.env.NODE_ENV === 'dev'){
+  config()
+}
 
 const products = Router()
 
@@ -23,14 +28,18 @@ products.get("/:cat", async (req, res) => {
   const productos = await productosDao.listarTodos(cat);
   const usuario=req.session.user
   
-  res.status(200).render('productos', {productos, categorias, usuario, cat});
+  const usrID=process.env.USERID
+  console.log("usrID",usrID);
+  res.status(200).render('productos', {productos, categorias, usuario, usrID, cat});
 
 });
 
-products.get("/:id", async (req, res) => {  
+products.get("/prod/:id", async (req, res) => {  
   const { id } = req.params    
   const productos = await productosDao.listarUno(id);
-  res.status(201).json(productos)
+  
+  res.status(201).send(productos).json
+  /* res.status(201).json(productos) */
 });
 
 products.post("/", async (req, res) => { 

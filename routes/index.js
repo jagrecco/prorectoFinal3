@@ -10,6 +10,8 @@ import profile from "./profile.js";
 import errorlogin from "./errorlogin.js"
 import register from "./register.js";
 import raiz from "./raiz.js"
+import autenticado from "../middleware/autenticado.js";
+
 
 router.use((req,res, next)=>{
     log(req.method, req.originalUrl, 200)
@@ -21,10 +23,9 @@ router.use("/login", login);
 router.use("/register", register)
 router.use("/errorlogin", errorlogin);
 
-router.use((req,res, next)=>{
-    if (!req.session.user) {return res.status(404).render('error')}
-    next()
-})
+
+//verifico si está autenticado
+router.use("*", autenticado)
 
 router.use("/logout", logout);
 router.use("/api/productos", products);
@@ -36,5 +37,6 @@ router.use('*', (req,res,next)=>{
     res.status(404).render('error');
     next()
 })
+
 
 export default router

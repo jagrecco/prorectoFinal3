@@ -12,7 +12,7 @@ class ContenedorMongo{
 
     async listarCategorias(){
         try {
-            //db.genbetadev.find({},{"nombre":1,"_id":0});
+            
             return await this.col.find({},{"category":1,"_id":0});
         }
         catch (error){
