@@ -1,8 +1,8 @@
 import logger from "../loggers/logger.js";
 import twilio from "twilio";
 
-const accountSid= "AC115b8e78c8fba80f77616ad981f90731";
-const authToken="4d33e22bb4ac096bd755ee69d2327790";
+const accountSid= process.env.ACCOUNTSID;
+const authToken= process.env.AUTHTOKEN;
 
 const client=twilio(accountSid,authToken);
 
