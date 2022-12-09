@@ -39,3 +39,5 @@
 [2022-11-13T18:27:35.323Z  Level: [31merror[39m  Error al conectar a la fuente de datos: CastError: Cast to ObjectId failed for value "Todos" (type string) at path "_id" for model "productos"]
 [2022-11-13T18:27:38.439Z  Level: [31merror[39m  Error al conectar a la fuente de datos: CastError: Cast to ObjectId failed for value "Todos" (type string) at path "_id" for model "productos"]
 [2022-11-13T18:27:48.027Z  Level: [31merror[39m  Error al conectar a la fuente de datos: CastError: Cast to ObjectId failed for value "Todos" (type string) at path "_id" for model "productos"]
+[2022-12-09T01:19:24.822Z  Level: [31merror[39m  Error de envío de mail: Error: Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials c19-20020a056870479300b00130d060ce80sm173986oaq.31 - gsmtp]

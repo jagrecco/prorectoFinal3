@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === 'dev'){
   config()
 }
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080;
 
 /* const ADM = process.env.ADM */
 

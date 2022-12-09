@@ -1,41 +1,24 @@
 async function abrirModal(idProd){
 
-  /* console.log(idProd) */
   const prod={}
 
   axios.get(`/api/productos/prod/${idProd}`)
     .then(function (response) {
-    // manejar respuesta exitosa
-    /* console.log(response.data[0]); */
-    prod.nombre=response.data[0].title
-    prod.descripcion=response.data[0].description
-    prod.codigo=response.data[0]._id
-    prod.foto=response.data[0].thumbnail
-    prod.precio=response.data[0].price
-    prod.stock=response.data[0].stock
+
+      prod.nombre=response.data[0].title
+      prod.descripcion=response.data[0].description
+      prod.codigo=response.data[0]._id
+      prod.foto=response.data[0].thumbnail
+      prod.precio=response.data[0].price
+      prod.stock=response.data[0].stock
     
-    console.log(prod);
-    enviarCarrito(prod);
+      console.log(prod);
+      enviarCarrito(prod);
+      animarCarro();
     })
     .catch(function (error) {
-    // manejar error
-    console.log(error);
-    })
-    .then(function () {
-    // siempre sera executado
-    });
-
-/* enviarCarrito(prod); */
-  /* fetch(`/api/productos/prod/${idProd}`)
-    .then((resp) => resp.json())
-    .then((data) => {
-  
-      prod=data[0]
-      console.log(prod)
-    })
-    .catch((error) => {
       console.log(error);
-    }); */
+    })
 
 }
 
@@ -48,10 +31,10 @@ function enviarCarrito(producto){
   axios.post(`/api/carrito/${ui}`, producto) //enviar id del comprador
     .then(function (response) {
       console.log(`Post de ${producto} al carro de usr: ${ui} hecho`);
-      /* console.log(response.data); */
+      
     })
     .catch(function (error) {
-      /* console.log(error); */
+      console.log(error);
     });
 }
 
@@ -81,4 +64,15 @@ function doClick() {
   if (el) {
     el.click();
   }
+}
+//crear función para el click del botón carrito
+function pedirCarrito(usrID){
+  /* document.getElementById("carrito") */
+}
+
+function animarCarro(){
+  document.getElementById("btnCarro").classList.add("animate__animated", "animate__bounce")
+  setTimeout(() => {
+    document.getElementById("btnCarro").classList.remove("animate__animated", "animate__bounce")
+  }, 1000);
 }

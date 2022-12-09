@@ -10,11 +10,9 @@ carts.post("/:carro", async (req, res) => {
   
   const producto=JSON.stringify(req.body)
 
-  /* console.log("req.body = " + JSON.parse(producto)) */
-  /* console.log(carro); */
-  /* const data = await carritosDao.agregarProducto({ idCarro: carro, productos: [] }) */
   const data = await carritosDao.agregarProducto(carro, producto)
-  res.status(201).json(data)   
+  res.status(201).json(data)
+
 });
 
 carts.get("/", async (req, res) =>{
@@ -29,9 +27,13 @@ carts.delete("/:id", async (req, res) => {
 });
 
 carts.get("/:id/productos", async (req, res) => {  
-  const { id } = req.params
-  const data = await carritosDao.listarUno(id)
-  res.status(201).json(data) // .json(data.productos)
+  const { id } = req.params;
+  const data = await carritosDao.buscarCarro(id);
+  /* const data = await carritosDao.listarUno(id) */
+  /* res.status(201).json(data) */ // .json(data.productos)
+  //res.status(200).render('productos', {productos, categorias, usuario, usrID, cat});
+  const carro=data[0];
+  res.status(201).render("carrito", {carro});
 });
 
 

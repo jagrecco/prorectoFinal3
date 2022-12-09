@@ -29,21 +29,9 @@ class CarritoMongoDao extends ContenedorMongo {
                         const arrayProductos=carro[0].productos
                         
                         arrayProductos.push(JSON.parse(producto))
-                        console.log(arrayProductos);
+                        /* console.log(arrayProductos); */
 
-                        /* const query = { name: "Steve Lobsters", "items.type": "pizza" };
-                        const updateDocument = {
-                            $set: { "items.$.size": "extra large" }
-                        }; */
-                    
-                        await this.col.updateOne({idUsuario: idCarrito}, {$set: {productos: arrayProductos} }/* ,
-                        function(error, info) {
-                            if (error) {
-                                console.log(`No se pudo actualizar el carrito ${idCarrito} con el producto ${producto}`)
-                            } else {
-                                console.log(`Se actualizó el carrito ${idCarrito} con el producto ${producto}`)
-                            }
-                        } */)
+                        await this.col.updateOne({idUsuario: idCarrito}, {$set: {productos: arrayProductos} })
                             try {
                                 console.log(`Producto agregado al carrito ${idCarrito}`);
                             } catch (error) {

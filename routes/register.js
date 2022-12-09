@@ -1,4 +1,5 @@
 import logger from "../loggers/logger.js";
+import {enviarMail} from "../utils/enviarMails.js";
 import { Router } from "express";
 const register = Router();
 
@@ -16,7 +17,6 @@ register.post('/', subirImg.single('foto'), (req, res)=>{
   
   const { email, password, nombre, direccion, edad, telefono } = req.body;
   
-  /* const foto=req.file.filename */
   let foto="profile_img.png"
 
   //si no subió foto de perfil usa la predeterminada
@@ -38,6 +38,8 @@ register.post('/', subirImg.single('foto'), (req, res)=>{
       newUser.password=hashedPassword;
       
       await newUser.save();
+      //pasar dos objetos: el primero para nuevo registro, el segundo para pedidos realizados
+      enviarMail({email, nombre, direccion, edad, telefono, foto});
       res.redirect("/login");
     }
   

@@ -1,0 +1,49 @@
+<%- layout('layouts/main.ejs') %>
+
+<div class="container mt-4">
+
+    <table class="table table-striped mt-4">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="text-center">Producto</th>
+                <th scope="col" class="text-center">Precio</th>
+                <th scope="col" class="text-center">Img</th>
+                <th scope="col" class="text-center"><div></div></th>
+            </tr>
+        </thead class="thead-dark">
+            <tr>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+            </tr>
+        <thead>
+    
+        </thead>
+        <tbody id="cuerpoTabla">
+            <% if (carro.productos.length === 0) { %>
+                <tr>
+                    <td colspan="3">No hay datos</td>
+                </tr>
+            <% }else{ %>
+            
+            <% for (let i = 0; i < carro.productos.length; i++) { %>
+                
+                <tr class="">
+                    <!-- <td style="display:none" id="_id"><%=carro.productos[i]._id%></td> -->
+                    <td><blockquote class="blockquote">
+                        <p class="mb-0"><%=carro.productos[i].nombre%></p>
+                        <footer class="blockquote-footer"><%=carro.productos[i].descripcion%></footer>
+                      </blockquote>
+                    </td>
+                    
+                    <td><span>$<%=carro.productos[i].precio%></span></td>                    
+                    <td class="imagen"><img src=<%=carro.productos[i].foto%>></img></td>
+                    <td><div></div></td>
+                </tr>
+                
+                
+            <% } } %>
+        </tbody>
+    </table>
+
+</div>
