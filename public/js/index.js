@@ -38,6 +38,20 @@ function enviarCarrito(producto){
     });
 }
 
+function eliminarProdCarrito(idProd){
+  const confirmar=confirm("¿Está seguro que desea eliminar el producto del carrito?");
+  if (!confirmar) {return}
+  const idCarro=document.getElementById("btnEliminaProducto").value
+  axios.delete(`/api/carrito/${idCarro}/productos/${idProd}`, idProd) //enviar id del comprador
+    .then(function (response) {
+      console.log(`Delete de ${idProd} al carro de usr: ${idCarro} hecho`);
+      location.reload();
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
 function cambio(file){
   
   const $seleccionArchivos = document.querySelector("#imgRuta")
@@ -64,10 +78,6 @@ function doClick() {
   if (el) {
     el.click();
   }
-}
-//crear función para el click del botón carrito
-function pedirCarrito(usrID){
-  /* document.getElementById("carrito") */
 }
 
 function animarCarro(){

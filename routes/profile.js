@@ -15,10 +15,11 @@ profile.get('/', async (req, res)=>{
   const user = await Usuario.findOne({ email: req.session.user });
 
   const tmpFoto=user.foto;
-
+  const usrID=process.env.USERID
+  
   user.foto=path.join('profile-img',tmpFoto)
   
-  res.status(200).render('profile', {user, usuario})
+  res.status(200).render('profile', {user, usuario, usrID})
 
 })
 

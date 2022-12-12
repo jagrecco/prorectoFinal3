@@ -20,7 +20,7 @@ carts.get("/", async (req, res) =>{
   res.status(201).json(datos)
 })
 
-carts.delete("/:id", async (req, res) => {   
+carts.delete("/:id", async (req, res) => {    //elimina carrito
   const id = req.params.id
   const data = await carritosDao.borrarUno(id)  
   res.json(data) 
@@ -28,12 +28,17 @@ carts.delete("/:id", async (req, res) => {
 
 carts.get("/:id/productos", async (req, res) => {  
   const { id } = req.params;
+  const usuario=req.session.user
+  const usrID=process.env.USERID
+
   const data = await carritosDao.buscarCarro(id);
-  /* const data = await carritosDao.listarUno(id) */
-  /* res.status(201).json(data) */ // .json(data.productos)
-  //res.status(200).render('productos', {productos, categorias, usuario, usrID, cat});
-  const carro=data[0];
-  res.status(201).render("carrito", {carro});
+
+  if (data.length==0) {
+    res.status(302).render("carritoVacio",{usuario, usrID});
+  } else {
+    const carro=data[0];
+    res.status(201).render("carrito", {carro, usuario, usrID});
+  }
 });
 
 
@@ -51,10 +56,10 @@ carts.post("/:id/productos/", (req, res) => {
 
 carts.delete("/:id/productos/:idProducto", async (req, res) => { 
   const idCarrito = req.params.id   
-  const idProducto = req.params.idProducto   
-  
+  const idProducto = req.params.idProducto
   const data = await carritosDao.eliminarProducto(idCarrito, idProducto)
-  res.json(data)   
+  /* res.status(201).render("carrito", {data, usuario, usrID}); */
+  res.json(data)
 });
 
 export default carts;

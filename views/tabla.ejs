@@ -9,14 +9,13 @@
     </thead class="thead-dark">
         <tr>
             <th>
-                <div class="dropdown">
+                <div class="dropdown" style="z-index: 200">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
                       Categoria <strong><%=cat%></strong>
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="/api/productos/Todos">Todos los artículos</a>
                         <% for (let j = 0; j < categorias.length; j++) { %>
-                            <!-- <a class="dropdown-item" href="/api/productos/categorias/<%=categorias[j].category%>"><%=categorias[j].category%></a> -->
                             <a class="dropdown-item" href="/api/productos/<%=categorias[j].category%>"><%=categorias[j].category%></a>
                         <% } %>
                     </div>
@@ -39,7 +38,7 @@
         <% for (let i = 0; i < productos.length; i++) { %>
             
             <tr class="">
-                <!-- <td style="display:none" id="_id"><%=productos[i]._id%></td> -->
+                
                 <td><blockquote class="blockquote">
                     <p class="mb-0"><%=productos[i].title%></p>
                     <footer class="blockquote-footer"><%=productos[i].description%></footer>

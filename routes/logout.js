@@ -7,6 +7,7 @@ logout.get("/", (req, res) => {
     req.session.destroy((err) => {
       if (!err) {
         logger.info(`${usuario} cerró su sesión`);
+        process.env.USERID="";
         res.redirect('/')
     }
       else {

@@ -93,3 +93,19 @@ img{
     height: 100px;
     width: 100%;
 }
+
+.encabezadoCarro{
+    color: #fff;
+    background-color: #fa3f07;
+    border-color: #454d55;
+}
+
+.dropdown-menu{
+    z-index: 1000;
+}
+.btn-prods-del{
+    background-color: #fa3f07;
+}
+.btn-prods-del:hover{
+    border: 1px solid #454d55;
+}

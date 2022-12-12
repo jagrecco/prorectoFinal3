@@ -29,7 +29,7 @@ products.get("/:cat", async (req, res) => {
   const usuario=req.session.user
   
   const usrID=process.env.USERID
-  console.log("usrID",usrID);
+  
   res.status(200).render('productos', {productos, categorias, usuario, usrID, cat});
 
 });

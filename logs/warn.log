@@ -244,3 +244,6 @@
 [2022-12-09T14:38:24.675Z  Level: [33mwarn[39m  Método: POST Ruta inexistente: /api/carrito/]
 [2022-12-09T14:38:31.064Z  Level: [33mwarn[39m  Método: POST Ruta inexistente: /api/carrito/]
 [2022-12-09T14:42:06.528Z  Level: [33mwarn[39m  Método: POST Ruta inexistente: /api/carrito/]
+[2022-12-10T00:00:45.360Z  Level: [33mwarn[39m  Método: GET Ruta inexistente: /favicon.ico]
+[2022-12-11T17:03:57.549Z  Level: [33mwarn[39m  Método: DELETE Ruta inexistente: /api/carrito/638d5f71d9a180ddd98b8b5b/6392a3b3a1aed11161693d92]
+[2022-12-11T17:12:14.302Z  Level: [33mwarn[39m  Método: DELETE Ruta inexistente: /api/carrito/636c1bec8461a5c86e525a06/6392a3b3a1aed11161693d92]
